@@ -51,18 +51,18 @@
                     console.log("商品番号: " + this.id + ", 商品名: " + this.name + "を購入します。");
                     // 課題4-2. ここにコードを書く
                     // 購入による商品の在庫削減処理
-                    this.stock--; 
+                    this.stock--;
 
                     // 課題4-3. ここにコードを書く
                     // 在庫用のエレメントを抽出し、HTML内の個数を更新
                     const stockElement = document.getElementById(this.id);
                     if (stockElement) {
-                        stockElement.textContent = this.stock + "個"; 
+                        stockElement.textContent = this.stock + "個";
                         console.log(`残りは${this.stock}個です。`);
                     }
                 } else console.log(this.name + "は商品の在庫がないため購入できません。");
             }
-        } 
+        }
 
         // 商品テーブルのエレメント抽出
         const itemArea = document.getElementById("item_area");
@@ -77,7 +77,7 @@
         for (let i = 0; i < items.length; i++) {
             item_list[i] = new Item(items[i].name, items[i].price, items[i].stock);
         }
-        
+
         for (let i = 0; i < items.length; i++) {
             console.log("id:", items[i].id, "name:", items[i].name, items[i].price, "円, 残り", items[i].stock, "個");
         }
@@ -98,17 +98,17 @@
 
             let stockTd = document.createElement("td");
             stockTd.textContent = item_list[i].stock + "個";
-            stockTd.id = item_list[i].id; 
+            stockTd.id = item_list[i].id;
             tr.appendChild(stockTd);
 
             let buyTd = document.createElement("td");
             let buyButton = document.createElement("button");
             buyButton.textContent = "購入";
-            buyButton.id = "button" + item_list[i].id; 
+            buyButton.id = "button" + item_list[i].id;
             buyTd.appendChild(buyButton);
             tr.appendChild(buyTd);
 
-            itemArea.appendChild(tr); 
+            itemArea.appendChild(tr);
         }
 
         // クリックイベント時の購入処理の設定
